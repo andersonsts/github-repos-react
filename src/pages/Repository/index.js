@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  FaArrowRight, FaArrowLeft, FaSpinner, FaStar, FaCodeBranch, FaRegFileAlt,
+  FaArrowRight, FaArrowLeft, FaSpinner, FaStar, FaRegFileAlt,
 } from 'react-icons/fa';
 import { GoRepoForked } from 'react-icons/go';
 import { Link } from 'react-router-dom';
@@ -105,7 +105,7 @@ class Repository extends Component {
           <div>
             <Link to="/">
               <FaArrowLeft />
-              Back to Repositories
+              Back
             </Link>
           </div>
           <OwnerProfile>
@@ -152,6 +152,58 @@ class Repository extends Component {
             <p>{repository.description}</p>
           </RepoInfo>
         </Owner>
+
+        <IssueList>
+          <FilterList active={filterIndex}>
+            {filters.map((filter, index) => (
+              <button
+                type="button"
+                key={filter.state}
+                onClick={() => this.handleFilters(index)}
+              >
+                {filter.label}
+              </button>
+            ))}
+          </FilterList>
+          {issues.map((issue) => (
+            <li key={String(issue.id)}>
+              <a
+                href={issue.html_url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={issue.user.avatar_url} alt={issue.user.login} />
+                <div>
+                  <strong>
+                    <span>{issue.title}</span>
+                    {issue.labels.map((label) => (
+                      <IssueLabel key={String(label.id)} color={label.color}>
+                        {label.name}
+                      </IssueLabel>
+                    ))}
+                  </strong>
+                  <p>{issue.user.login}</p>
+                </div>
+              </a>
+            </li>
+          ))}
+          <PageNav>
+            <button
+              type="button"
+              disabled={page < 2}
+              onClick={() => this.handlePage('back')}
+            >
+              <FaArrowLeft />
+            </button>
+            <button
+              type="button"
+              disabled={page > 5}
+              onClick={() => this.handlePage('next')}
+            >
+              <FaArrowRight />
+            </button>
+          </PageNav>
+        </IssueList>
       </Container>
     );
   }
