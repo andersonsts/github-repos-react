@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  FaGithubAlt, FaSpinner, FaPlus, FaTrashAlt,
+  FaGithubAlt, FaPlus, FaSpinner, FaTrashAlt,
 } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
@@ -28,8 +28,8 @@ class Main extends Component {
       this.setState({
         repositories: [
           {
-            name: 'facebook/react',
-            ownerAvatar: 'https://avatars3.githubusercontent.com/u/69631?v=4',
+            name: 'twbs/bootstrap',
+            ownerAvatar: 'https://avatars0.githubusercontent.com/u/2918581?v=4',
           },
         ],
       });
@@ -44,10 +44,9 @@ class Main extends Component {
     }
   }
 
-
   handleInputChange = (e) => {
     this.setState({ newRepo: e.target.value, error: false });
-  }
+  };
 
   handleSubmit = async (e) => {
     e.preventDefault();
@@ -61,7 +60,7 @@ class Main extends Component {
 
       const data = {
         name: response.data.full_name,
-        ownerAvatar: response.data.owner.avatart_url,
+        ownerAvatar: response.data.owner.avatar_url,
       };
 
       if (repositories.find((repo) => repo.name === data.name)) {
@@ -77,10 +76,12 @@ class Main extends Component {
     } catch (err) {
       this.setState({
         isLoading: false,
-        error: err.message.includes('404') ? 'Repository not found' : err.message,
+        error: err.message.includes('404')
+          ? 'Repository not found'
+          : err.message,
       });
     }
-  }
+  };
 
   handleRemove = (repositoryName) => {
     this.setState((state) => ({
@@ -88,7 +89,7 @@ class Main extends Component {
         (repo) => repo.name !== repositoryName,
       ),
     }));
-  }
+  };
 
   render() {
     const {
@@ -110,12 +111,11 @@ class Main extends Component {
             isLoading={isLoading}
             error={error}
           />
-
           <SubmitButton isLoading={isLoading} disabled={!newRepo.length}>
             {isLoading ? (
-              <FaSpinner color="#fff" size={14} />
+              <FaSpinner color="#FFF" size={14} />
             ) : (
-              <FaPlus color="#fff" size={14} />
+              <FaPlus color="#FFF" size={14} />
             )}
           </SubmitButton>
           {error && <div className="error">{error}</div>}
@@ -128,7 +128,6 @@ class Main extends Component {
                 <img src={repository.ownerAvatar} alt={repository.name} />
                 <span>{repository.name}</span>
               </Link>
-
               <button
                 type="button"
                 onClick={() => this.handleRemove(repository.name)}
