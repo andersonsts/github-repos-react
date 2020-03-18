@@ -22,7 +22,7 @@
 
 <p align="center">
   <a href="#rocket-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#information_execute-executar">Executar</a>
+  <a href="#information_source-executar">Executar</a>
 </p>
 
 ![App Screenshot](https://res.cloudinary.com/andersonsts/image/upload/v1584489267/home_eur742.png)
