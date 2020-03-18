@@ -22,7 +22,7 @@
 
 <p align="center">
   <a href="#rocket-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#information_execute-localmente">Execute localmente</a>
+  <a href="#information_execute-executar">Executar</a>
 </p>
 
 ![App Screenshot](https://res.cloudinary.com/andersonsts/image/upload/v1584489267/home_eur742.png)
@@ -41,7 +41,7 @@ Este projeto foi desenvolvido no [Bootcamp GoStack - Rocketseat](https://rockets
 -  [PropTypes](https://pt-br.reactjs.org/docs/typechecking-with-proptypes.html)
 -  [VS Code][vc] with [EditorConfig][vceditconfig], [ESLint][vceslint] and [Prettier](https://github.com/prettier/prettier-eslint)
 
-## :information_source: Execute localmente
+## :information_source: Executar
 
 Para clonar e executar essa aplicação você precisa do [Git](https://git-scm.com), [Node.js v10.16][nodejs] ou superior + [Yarn v1.13][yarn] ou superior instalado em sua máquina. Em seu terminal de comando, execute:
 
